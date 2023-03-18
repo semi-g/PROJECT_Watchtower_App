@@ -1,0 +1,1 @@
+In this folder (scenes) elements that are displayed on a specific page are placed.

@@ -1,0 +1,1 @@
+In this folder components are placed that are shared (used in different pages).
