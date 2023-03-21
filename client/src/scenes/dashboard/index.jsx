@@ -9,6 +9,7 @@ import PersonAddIcon from "@mui/icons-material/PersonAdd"
 import TrafficIcon from "@mui/icons-material/Traffic"
 import LineChart from "../../components/LineChart"
 import AIPrompt from "../../components/AIPrompt"
+import PieChart from "../../components/PieChart"
 import GeoChart from "../../components/GeoChart"
 import StatBox from "../../components/StatBox"
 import ProgressCircle from "../../components/ProgressCircle"
@@ -143,19 +144,12 @@ const Dashboard = () => {
                 </Box>
 
                 {/* ROW 3 */}
-                <Box gridColumn="span 4" gridRow="span 2" backgroundColor={colors.primary[400]} p="30px">
-                    <Typography variant="h5" fontWeight="600">
-                        Campaign
+                <Box gridColumn="span 4" gridRow="span 2" backgroundColor={colors.primary[400]}>
+                    <Typography variant="h5" fontWeight="600" sx={{p: "15px 30px 15px 20px"}}>
+                        News Summary
                     </Typography>
                     <Box display="flex" flexDirection="column" alignItems="center" mt="25px">
-                    <ProgressCircle size="125"/>
-                        <Typography variant="h5" colors={colors.greenAccent[500]} sx={{mt: "15px"}}>
-                            $420,352.00 profit
-                        </Typography>
-
-                        <Typography>
-                            Includes extra costs
-                        </Typography>
+                        <PieChart isDashboard={true}/>
                    </Box>
                 </Box>
 

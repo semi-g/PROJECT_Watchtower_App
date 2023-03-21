@@ -4,7 +4,7 @@ import { useTheme } from "@mui/material"
 import { mockPieData as data } from "../data/mockData"
 
 
-const PieChart = () => {
+const PieChart = ({ isDashboard = false}) => { 
     const theme = useTheme()
     const colors = tokens(theme.palette.mode)
 
