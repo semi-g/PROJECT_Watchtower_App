@@ -11,7 +11,7 @@ import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined"
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined"
 import HelpOutlinedIcon from "@mui/icons-material/HelpOutlined"
 import SmartToyOutlinedIcon from '@mui/icons-material/SmartToyOutlined';
-import PieChartOutlinedIcon from "@mui/icons-material/PieChartOutlined"
+import NewspaperIcon from '@mui/icons-material/Newspaper';
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined"
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined"
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined"
@@ -98,12 +98,12 @@ const SidebarFull = () => {
                             <span className={`text-base font-medium flex-1 ${!open && "hidden"}`}>Line</span>
                         </li>
                     </Link>
-                    <Link to='/pie'>
+                    <Link to='/textsummarizer'>
                         <li className='text-gray-300 text-sm flex items-center gap-x-4 cursor-pointer p-2 hover:bg-light-white rounded-md mt-2'>
                             <span className='text-2xl block float-left'>
-                                <PieChartOutlinedIcon/>
+                                <NewspaperIcon/>
                             </span>
-                            <span className={`text-base font-medium flex-1 ${!open && "hidden"}`}>Pie</span>
+                            <span className={`text-base font-medium flex-1 ${!open && "hidden"}`}>Summarize</span>
                         </li>
                     </Link>
                     <Link to='/geography'>

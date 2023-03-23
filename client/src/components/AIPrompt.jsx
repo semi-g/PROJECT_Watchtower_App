@@ -1,8 +1,8 @@
 import { useTheme } from "@mui/material"
 import { tokens } from "../theme"
-import React, { useState, useRef, useEffect } from "react";
-//import bot from "../assets/bot.svg";
-import user from "../assets/user.svg";
+import React, { useState, useRef, useEffect } from "react"
+//import bot from "../assets/bot.svg"
+import user from "../assets/user.svg"
 import bot from "../assets/favicon.ico"
 
 const AIPrompt = ({ isDashboard = false }, props) => {
@@ -71,7 +71,7 @@ const AIPrompt = ({ isDashboard = false }, props) => {
         if (response.ok) {
             //Get the Open AI response
             const responseData = await response.json()
-            //Parse date
+            //Parse data
             const parsedData = responseData.bot.trim()
 
             //Call the typeText function to type out response letter per letter

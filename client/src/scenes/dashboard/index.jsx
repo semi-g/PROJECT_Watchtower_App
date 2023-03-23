@@ -9,10 +9,10 @@ import PersonAddIcon from "@mui/icons-material/PersonAdd"
 import TrafficIcon from "@mui/icons-material/Traffic"
 import LineChart from "../../components/LineChart"
 import AIPrompt from "../../components/AIPrompt"
-import PieChart from "../../components/PieChart"
 import GeoChart from "../../components/GeoChart"
 import StatBox from "../../components/StatBox"
 import ProgressCircle from "../../components/ProgressCircle"
+import TextSummarizer from "../../components/TextSummarizer"
 
 const Dashboard = () => {
     const theme = useTheme()
@@ -146,10 +146,10 @@ const Dashboard = () => {
                 {/* ROW 3 */}
                 <Box gridColumn="span 4" gridRow="span 2" backgroundColor={colors.primary[400]}>
                     <Typography variant="h5" fontWeight="600" sx={{p: "15px 30px 15px 20px"}}>
-                        News Summary
+                        Article Summarize
                     </Typography>
-                    <Box display="flex" flexDirection="column" alignItems="center" mt="25px">
-                        <PieChart isDashboard={true}/>
+                    <Box height="250px" mt="-20px">
+                        <TextSummarizer isDashboard={true}/>
                    </Box>
                 </Box>
 
