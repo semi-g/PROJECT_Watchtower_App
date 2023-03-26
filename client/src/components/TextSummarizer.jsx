@@ -31,7 +31,37 @@ const TextSummarizer = ({ isDashboard = false }) => {
         const data = new FormData(e.target)
         
         const inputLink = data.get('link_to_summarize') 
+        const bulletPointCheckBox = data.get('checkbox_bullet_points')
+        const boldKeywordCheckbox = data.get('checkbox_bold_keywords')
+        let basePrompt, fullPrompt, readingTimeInMin
         
+
+        //Hyperlink validation -> on submit
+        const hyperLinkRegEx = /^(http|https):\/\/[a-zA-Z0-9]+\.[a-zA-Z]{2,}(\/[a-zA-Z0-9#?=&\/\.-]+)*/
+        if (!hyperLinkRegEx.test(inputLink)) {
+            alert("Please enter a valid link.")
+            return false
+        }
+        
+        //Define base prompt
+        basePrompt = `You are a professional article summarizer with 
+                    a lot of experience in making high quality summaries. 
+                    Provide a clear summary of the following article: `
+        
+        readingTimeInMin = 15
+        fullPrompt = `${basePrompt}${inputLink}. The average person should be able to read the summary
+                        in about ${readingTimeInMin} seconds. `
+        
+        fullPrompt = fullPrompt.replace(/[\n\t]/g, "").replace(/\s+/g, " ")
+        
+        //Check if checkboxes are checked or not and engineer the prompt accordingly
+        if (bulletPointCheckBox == 'on') {
+            fullPrompt = fullPrompt + "Write this summary in bullet points emphasizing the most important parts. Each bullet point characters is represented by a dash. "
+        }
+        if (boldKeywordCheckbox == 'on') {
+            fullPrompt = fullPrompt + "Encapsulate the most important keywords in double asterisks. "
+        }
+
         //Add the loading dots
         const outputDiv = document.querySelector('#output_container')
         loader(outputDiv)
@@ -43,7 +73,7 @@ const TextSummarizer = ({ isDashboard = false }) => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                prompt: inputLink
+                prompt: fullPrompt
             })
         })
 
@@ -55,8 +85,19 @@ const TextSummarizer = ({ isDashboard = false }) => {
             //Get Open AI response
             const responseData = await response.json()
             //Parse data
-            const parsedData = responseData.bot.trim()
+            let parsedData = responseData.bot
+
+            //Use bullet points to summarize
+            if (bulletPointCheckBox == 'on') {
+                parsedData = parsedData.replace(/\s-\s/g, '<br>$&')
+            }
+
+            //Make keywords bold
+            if (boldKeywordCheckbox == 'on') {
+                parsedData = parsedData.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+            }
             
+            //View the response in UI
             outputDiv.innerHTML = parsedData
         }
         else {
@@ -89,12 +130,12 @@ const TextSummarizer = ({ isDashboard = false }) => {
               <form onSubmit={handleSubmit} class="flex flex-col">
                     <div class="flex items-center mb-4">
                         <label class="inline-flex items-center">
-                            <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600" />
-                            <span class="ml-2 text-gray-700">Use bullet points</span>
+                            <input name="checkbox_bullet_points" type="checkbox" class="form-checkbox h-5 w-5 text-blue-600" />
+                            <span class="ml-2 text-gray-700">Use Bullet Points</span>
                         </label>
                         <label class="inline-flex items-center ml-6">
-                            <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600" />
-                            <span class="ml-2 text-gray-700">Bold keywords</span>
+                            <input name="checkbox_bold_keywords" type="checkbox" class="form-checkbox h-5 w-5 text-blue-600" />
+                            <span class="ml-2 text-gray-700">Bold Keywords</span>
                         </label>
                     </div>
                     <div class="flex items-center">

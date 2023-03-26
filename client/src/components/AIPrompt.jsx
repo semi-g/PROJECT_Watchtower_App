@@ -140,7 +140,6 @@ const AIPrompt = ({ isDashboard = false }, props) => {
                 </div>
                 </div>
                 <div id="chat_container" class="p-4 max-h-60vh overflow-y-auto"></div>
-                
             </div>
         </div>
     )   

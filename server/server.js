@@ -34,7 +34,7 @@ app.post('/', async(req, res) => {
             model: "text-davinci-003",
             prompt: `${prompt}`, //Passed in from the front end
             temperature: 0.7, //Higher temp = model takes more risks (results in more variety in response)
-            max_tokens: 200,
+            max_tokens: 300,
             top_p: 1,
             frequency_penalty: 0, //Higher penalty means model will return less 'same answers'
             presence_penalty: 0,

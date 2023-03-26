@@ -81,11 +81,11 @@ const Dashboard = () => {
                 </Box>
 
                 {/* ROW 2 */}
-                <Box gridColumn="span 8" gridRow="span 2" backgroundColor={colors.primary[400]}>
+                <Box gridColumn="span 8" gridRow="span 2" backgroundColor={colors.primary[400]} className="rounded-lg">
                     <Box mt="25px" p="0 30px" display="flex" justifyContent="space-between" alignItems="center">
                         <Box>
                             <Typography variant="h5" fontWeight="600" color={colors.grey[100]}>
-                                Revenue Generated
+                                Financial Overview
                             </Typography>
 
                             <Typography variant="h3" fontWeight="bold" color={colors.greenAccent[500]}>
@@ -104,7 +104,7 @@ const Dashboard = () => {
                         <LineChart isDashboard={true}/>
                     </Box>
                 </Box>
-                <Box gridColumn="span 4" gridRow="span 2" backgroundColor={colors.primary[400]} overflow="auto">
+                <Box gridColumn="span 4" gridRow="span 2" backgroundColor={colors.primary[400]} overflow="auto" className="rounded-lg">
                     <Box
                         display="flex"
                         justifyContent="space-between"
@@ -144,7 +144,7 @@ const Dashboard = () => {
                 </Box>
 
                 {/* ROW 3 */}
-                <Box gridColumn="span 4" gridRow="span 2" backgroundColor={colors.primary[400]}>
+                <Box gridColumn="span 7" gridRow="span 2" backgroundColor={colors.primary[400]} className="rounded-lg">
                     <Typography variant="h5" fontWeight="600" sx={{p: "15px 30px 15px 20px"}}>
                         Article Summarize
                     </Typography>
@@ -153,7 +153,7 @@ const Dashboard = () => {
                    </Box>
                 </Box>
 
-                <Box gridColumn="span 4" gridRow="span 2" backgroundColor={colors.primary[400]}>
+                <Box gridColumn="span 5" gridRow="span 2" backgroundColor={colors.primary[400]} className="rounded-lg">
                     <Typography variant="h5" fontWeight="600" sx={{p: "15px 30px 15px 20px"}}>
                         AI Prompt
                     </Typography>
@@ -162,7 +162,7 @@ const Dashboard = () => {
                    </Box>
                 </Box>
 
-                <Box gridColumn="span 4" gridRow="span 2" backgroundColor={colors.primary[400]} p="30px">
+                <Box gridColumn="span 4" gridRow="span 2" backgroundColor={colors.primary[400]} p="30px" className="rounded-lg">
                     <Typography variant="h5" fontWeight="600" sx={{mb: "15px"}}>
                         Geography Based Traffic
                     </Typography>
